@@ -1,6 +1,5 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-import Image from "next/image";
+import { HomePage } from "@/src/components/home/HomePage";
 
 export default function Home( {data} ) {
   return (
@@ -12,25 +11,8 @@ export default function Home( {data} ) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-        <header>
-          <nav>
-            <img />
-            <a href="/">Home</a>
-            <a href="/events">Events</a>
-            <a href="/about-us">About Us</a>
-          </nav>
-        </header>
-        
-        <main className={styles.main}>
-          { data.map(ev => <a key={ev.id} href={`/events/${ev.id}`}>
-            <Image alt={ev.title} width={300} height={300} src={ev.image} /> 
-            <h2>{ev.title}</h2> 
-            <p>{ev.description}</p></a>) }
-            
-        </main>
-        <footer className={styles.footer}>
-          <p>@ 2025 Event App</p>
-        </footer>
+      <HomePage data={data} />
+
       </>
   );
 }
